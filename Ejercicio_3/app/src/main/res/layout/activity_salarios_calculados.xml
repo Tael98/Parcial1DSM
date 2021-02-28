@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SalariosCalculados">
+
+    <TextView
+        android:id="@+id/sal_max"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:layout_marginLeft="176dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="177dp"
+        android:layout_marginRight="177dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/afp3" />
+
+    <TextView
+        android:id="@+id/mayores_tres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:layout_marginLeft="176dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="177dp"
+        android:layout_marginRight="177dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sal_max" />
+
+    <TextView
+        android:id="@+id/sal_minimo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:layout_marginLeft="176dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="177dp"
+        android:layout_marginRight="177dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mayores_tres" />
+
+    <TextView
+        android:id="@+id/textResultados"
+        android:layout_width="410dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:gravity="center_horizontal"
+        android:text="Resultados"
+        android:textColor="#113BBC"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nombre"
+        android:layout_width="60dp"
+        android:layout_height="25dp"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
+        android:text="Nombre"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textResultados" />
+
+    <TextView
+        android:id="@+id/isss"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="20dp"
+        android:text="ISSS"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/nombre"
+        app:layout_constraintTop_toBottomOf="@+id/textResultados" />
+
+    <TextView
+        android:id="@+id/afp"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="20dp"
+        android:text="AFP"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/isss"
+        app:layout_constraintTop_toBottomOf="@+id/textResultados" />
+
+    <TextView
+        android:id="@+id/liquido"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginLeft="47dp"
+        android:layout_marginTop="20dp"
+        android:text="Líquido"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/renta"
+        app:layout_constraintTop_toBottomOf="@+id/textResultados" />
+
+    <TextView
+        android:id="@+id/renta"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="20dp"
+        android:text="Renta"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/afp"
+        app:layout_constraintTop_toBottomOf="@+id/textResultados" />
+
+    <TextView
+        android:id="@+id/textNombre1"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="19dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombre" />
+
+    <TextView
+        android:id="@+id/isss1"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="18dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/textNombre1"
+        app:layout_constraintTop_toBottomOf="@+id/isss" />
+
+    <TextView
+        android:id="@+id/afp1"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="18dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/isss1"
+        app:layout_constraintTop_toBottomOf="@+id/afp" />
+
+    <TextView
+        android:id="@+id/renta1"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="18dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/afp1"
+        app:layout_constraintTop_toBottomOf="@+id/renta" />
+
+    <TextView
+        android:id="@+id/liquido1"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="18dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/renta1"
+        app:layout_constraintTop_toBottomOf="@+id/liquido" />
+
+    <TextView
+        android:id="@+id/textNombre2"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textNombre1" />
+
+    <TextView
+        android:id="@+id/isss2"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/textNombre2"
+        app:layout_constraintTop_toBottomOf="@+id/isss1" />
+
+    <TextView
+        android:id="@+id/afp2"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/isss2"
+        app:layout_constraintTop_toBottomOf="@+id/afp1" />
+
+    <TextView
+        android:id="@+id/renta2"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/afp2"
+        app:layout_constraintTop_toBottomOf="@+id/renta1" />
+
+    <TextView
+        android:id="@+id/liquido2"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/renta2"
+        app:layout_constraintTop_toBottomOf="@+id/liquido1" />
+
+    <TextView
+        android:id="@+id/textNombre3"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textNombre2" />
+
+    <TextView
+        android:id="@+id/isss3"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/textNombre3"
+        app:layout_constraintTop_toBottomOf="@+id/isss2" />
+
+    <TextView
+        android:id="@+id/afp3"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/isss3"
+        app:layout_constraintTop_toBottomOf="@+id/afp2" />
+
+    <TextView
+        android:id="@+id/renta3"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/afp3"
+        app:layout_constraintTop_toBottomOf="@+id/renta2" />
+
+    <TextView
+        android:id="@+id/liquido3"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/renta3"
+        app:layout_constraintTop_toBottomOf="@+id/liquido2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

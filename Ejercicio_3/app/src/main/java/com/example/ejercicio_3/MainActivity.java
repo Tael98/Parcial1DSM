@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -45,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void calcular(View view){
-        Intent intent = new Intent(this, Resultados.class);
+    public void Calcular(View view){
+        Intent intent = new Intent(this, SalariosCalculados.class);
 
         String nombre1 = this.nombre1.getText().toString();
         String nombre2 = this.nombre2.getText().toString();
@@ -58,79 +59,95 @@ public class MainActivity extends AppCompatActivity {
         String cargo3 = this.cargo3.getText().toString();
         String[] cargos = new String[]{cargo1, cargo2, cargo3 };
 
-        Integer horas1 = Integer.parseInt(this.horas1.getText().toString());
-        Integer horas2 = Integer.parseInt(this.horas2.getText().toString());
-        Integer horas3 = Integer.parseInt(this.horas3.getText().toString());
-        Integer[] horas = new Integer[]{horas1, horas2, horas3 };
+        try
+        {
+            Integer horas1 = Integer.parseInt(this.horas1.getText().toString());
+            Integer horas2 = Integer.parseInt(this.horas2.getText().toString());
+            Integer horas3 = Integer.parseInt(this.horas3.getText().toString());
+            Integer[] horas = new Integer[]{horas1, horas2, horas3 };
 
-        if((horas1 < 0) || (horas2 < 0) || (horas3 < 0)){
-            Toast notificacion= Toast.makeText(this,"Ingrese un número de horas válido.",Toast.LENGTH_LONG);
-            notificacion.show();
-        }
-
-        List<Double> salarios = new ArrayList<>();
-        List<Double> des_isss = new ArrayList<>();
-        List<Double> des_afp = new ArrayList<>();
-        List<Double> des_renta = new ArrayList<>();
-
-        for(int i = 0; i < 3; i++){
-            Double salario = 0.0;
-            if(horas[i] < 160){
-                salario = horas[i] * 9.75;
-            }else{
-                Integer extra = horas[i] - 160;
-                salario = (160 * 9.75) + (extra * 11.50);
+            if((horas1 < 0) || (horas2 < 0) || (horas3 < 0))
+            {
+                Toast.makeText(this, "Por favor ingrese una cantidad de horas válidas.", Toast.LENGTH_SHORT).show();
             }
+            else
+            {
+                List<Double> salarios = new ArrayList<>();
+                List<Double> des_isss = new ArrayList<>();
+                List<Double> des_afp = new ArrayList<>();
+                List<Double> des_renta = new ArrayList<>();
 
-            Double isss = salario * 0.0525;
-            des_isss.add(isss);
-            Double afp = salario * 0.0688;
-            des_afp.add(afp);
-            Double renta = salario * 0.1;
-            des_renta.add(renta);
+                for(int i = 0; i < 3; i++)
+                {
+                    Double salario = 0.0;
+                    if(horas[i] < 160) salario = horas[i] * 9.75;
+                    else
+                    {
+                        Integer extra = horas[i] - 160;
+                        salario = (160 * 9.75) + (extra * 11.50);
+                    }
 
-            Double total_desc = isss + afp + renta;
-            Double sal_liq = salario - total_desc;
+                    Double isss = salario * 0.0525;
+                    des_isss.add(isss);
+                    Double afp = salario * 0.0688;
+                    des_afp.add(afp);
+                    Double renta = salario * 0.1;
+                    des_renta.add(renta);
 
-            if(cargos[0] == "Gerente" && cargos[1] == "Asistente" && cargos[0] == "Secretaria"){
-                salarios.add(sal_liq);
-                continue;
-            }else if(cargos[i] == "Gerente"){
-                sal_liq += sal_liq * 0.1;
-            }else if(cargos[i] == "Asistente"){
-                sal_liq += sal_liq * 0.05;
-            }else{
-                sal_liq += sal_liq * 0.03;
+                    Double total_desc = isss + afp + renta;
+                    Double sal_liq = salario - total_desc;
+
+                    if(cargos[0] == "Gerente" && cargos[1] == "Asistente" && cargos[0] == "Secretaria")
+                    {
+                        salarios.add(sal_liq);
+                        continue;
+                    }
+                    else if(cargos[i] == "Gerente")
+                    {
+                        sal_liq += sal_liq * 0.1;
+                    }
+                    else if(cargos[i] == "Asistente")
+                    {
+                        sal_liq += sal_liq * 0.05;
+                    }
+                    else
+                    {
+                        sal_liq += sal_liq * 0.03;
+                    }
+                    salarios.add(sal_liq);
+                }
+
+                Double mayor = Collections.max(salarios);
+                Double menor = Collections.min(salarios);
+                Integer posicion_mayor = salarios.indexOf(mayor);
+                Integer posicion_menor = salarios.indexOf(menor);
+                String mayorEmpleado = nombres[posicion_mayor];
+                String menorEmpleado = nombres[posicion_menor];
+                Integer mayores = 0;
+                for (int i = 0; i < 3; i++)
+                {
+                    if (salarios.get(i) > 300.00) mayores++;
+                }
+
+                Bundle b = new Bundle();
+                b.putSerializable("des_isss", (Serializable)des_isss);
+                b.putSerializable("afp", (Serializable)des_afp);
+                b.putSerializable("renta", (Serializable)des_renta);
+                b.putSerializable("salarios", (Serializable)salarios);
+                intent.putExtra("nombres", nombres);
+                intent.putExtras(b);
+                intent.putExtra("salario_max", mayor);
+                intent.putExtra("salario_min", menor);
+                intent.putExtra("mayores_tr", mayores);
+                intent.putExtra("empleado_max", mayorEmpleado);
+                intent.putExtra("empleado_min", menorEmpleado);
+                startActivity(intent);
             }
-
-            salarios.add(sal_liq);
         }
-
-        Double mayor = Collections.max(salarios);
-        Double menor = Collections.min(salarios);
-        Integer posicion_mayor = salarios.indexOf(mayor);
-        Integer posicion_menor = salarios.indexOf(menor);
-        String mayorEmpleado = nombres[posicion_mayor];
-        String menorEmpleado = nombres[posicion_menor];
-        Integer mayores = 0;
-        for (int i = 0; i < 3; i++){
-            if (salarios.get(i) > 300.00){
-                mayores++;
-            }
+        catch (Exception e)
+        {
+            System.out.println("Error " + e.getMessage());
+            Toast.makeText(this, "Por favor ingrese una cantidad de horas válidas.", Toast.LENGTH_SHORT).show();
         }
-
-        Bundle b = new Bundle();
-        b.putSerializable("des_isss", (Serializable)des_isss);
-        b.putSerializable("afp", (Serializable)des_afp);
-        b.putSerializable("renta", (Serializable)des_renta);
-        b.putSerializable("salarios", (Serializable)salarios);
-        intent.putExtra("nombres", nombres);
-        intent.putExtras(b);
-        intent.putExtra("salario_max", mayor);
-        intent.putExtra("salario_min", menor);
-        intent.putExtra("mayores_tr", mayores);
-        intent.putExtra("empleado_max", mayorEmpleado);
-        intent.putExtra("empleado_min", menorEmpleado);
-        startActivity(intent);
     }
 }
